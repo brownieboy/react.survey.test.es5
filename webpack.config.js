@@ -18,20 +18,18 @@ var common = {
     },
     module: {
         loaders: [{
-            // test for both js and jsx
-            test: /\.jsx?$/,
+                // test for both js and jsx
+                test: /\.jsx?$/,
 
-            // use babel loader with Stage 1 features
-            loader: 'babel?stage=1',
+                // use babel loader with Stage 1 features
+                loader: 'babel?stage=1',
 
-            // operate only on our app directory
-            include: path.resolve(ROOT_PATH, 'app')
-        }, {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract("css-loader")
-
-            // loaders: ['style', 'css']
-        }]
+                // operate only on our app directory
+                include: path.resolve(ROOT_PATH, 'app')
+            }, {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract("css-loader")
+            }]
     },
     plugins: [
         new HtmlwebpackPlugin({

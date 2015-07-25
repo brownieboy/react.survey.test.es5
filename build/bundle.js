@@ -20501,7 +20501,7 @@
 	      name: this.props.name,
 	      checked: this.props.checked,
 	      onClick: this.handleChange,
-	      value: this.props.value }), this.props.index + 3, ". ", this.props.label);
+	      value: this.props.value }), this.props.index + 1, ". ", this.props.label);
 	  },
 	  handleChange: function handleChange(e) {
 	    // Just a little preprocessing before passing upwards
