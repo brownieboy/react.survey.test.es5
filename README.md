@@ -46,8 +46,8 @@ npm run startwin
 
 # Under Development!
 Assuming the task ran okay - look for the "webpack: bundle is now VALID" message - you can now point your browser to either of these addressses:
-* http://localhost:8080/build/
-* http://localhost:8080/webpack-dev-server/build/
+* http://localhost:8080/
+* http://localhost:8080/webpack-dev-server/
 
 If you edit any of the source files (html, css or JavaScript) in the app folder, webpack should automatically detect the change and display the rebuilt version in your browser.
 
