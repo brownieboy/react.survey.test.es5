@@ -18,27 +18,21 @@ var common = {
     },
     module: {
         loaders: [{
-                // test for both js and jsx
-                test: /\.jsx?$/,
+            // test for both js and jsx
+            test: /\.jsx?$/,
 
-                // use babel loader with Stage 1 features
-                loader: 'babel?stage=1',
+            // use babel loader with Stage 1 features
+            loader: 'babel?stage=1',
 
-                // operate only on our app directory
-                include: path.resolve(ROOT_PATH, 'app')
-            }, {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract("css-loader")
-            }]
+            // operate only on our app directory
+            include: path.resolve(ROOT_PATH, 'app')
+        }]
     },
     plugins: [
         new HtmlwebpackPlugin({
             title: 'Survey test app, innit',
             template: 'app/index.html',
             inject: "body"
-        }),
-        new ExtractTextPlugin("./css/app.css", {
-            allChunks: true
         })
     ]
 };
@@ -50,8 +44,21 @@ if (TARGET === 'build') {
                 test: /\.jsx?$/,
                 loader: 'babel?stage=1',
                 include: path.resolve(ROOT_PATH, 'app')
+            }, {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract("css-loader")
             }]
-        }
+        },
+    plugins: [
+        new HtmlwebpackPlugin({
+            title: 'Survey test app, innit',
+            template: 'app/index.html',
+            inject: "body"
+        }),
+        new ExtractTextPlugin("./css/app.css", {
+            allChunks: true
+        })
+    ]
     });
 }
 
@@ -62,6 +69,9 @@ if (TARGET === 'dev') {
                 test: /\.jsx?$/,
                 loaders: ['react-hot', 'babel?stage=1'],
                 include: path.resolve(ROOT_PATH, 'app')
+            }, {
+                test: /\.css$/,
+                loaders: ['style', 'css']
             }]
         }
     });
