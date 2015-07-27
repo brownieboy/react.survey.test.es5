@@ -2,6 +2,7 @@ var React = require("react");
 var CheckboxInputField = require("./CheckboxInputField.jsx");
 
 var CheckboxInputFields = React.createClass({
+
     render: function() {
         var that = this;
         var x = -1;

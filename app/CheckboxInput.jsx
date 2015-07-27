@@ -9,7 +9,7 @@ var CheckboxInput = React.createClass({
               checked={this.props.checked}
               onClick={this.handleChange}
               value={this.props.value} />
-              {this.props.index + 3}. {this.props.label}
+              {this.props.index + 1}. {this.props.label}
       </label>
     );
   },
@@ -18,4 +18,4 @@ var CheckboxInput = React.createClass({
       this.props.handleChange(this.props.index, e.target.checked);
   }
 });
-module.exports = CheckboxInput;
+ module.exports = CheckboxInput;
