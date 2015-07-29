@@ -8,7 +8,10 @@ var TARGET = process.env.TARGET;
 var ROOT_PATH = path.resolve(__dirname);
 
 var common = {
-    entry: [path.resolve(ROOT_PATH, 'app/App')],
+    entry: {
+        app: [path.resolve(ROOT_PATH, 'app/App')],
+        vendors: ['react']
+    },
     resolve: {
         extensions: ['', '.js', '.jsx'],
     },
@@ -33,7 +36,8 @@ var common = {
             title: 'Survey test app, innit',
             template: 'app/index.html',
             inject: "body"
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin('vendors', './js/vendors.js')
     ]
 };
 
@@ -49,16 +53,16 @@ if (TARGET === 'build') {
                 loader: ExtractTextPlugin.extract("css-loader")
             }]
         },
-    plugins: [
-        new HtmlwebpackPlugin({
-            title: 'Survey test app, innit',
-            template: 'app/index.html',
-            inject: "body"
-        }),
-        new ExtractTextPlugin("./css/app.css", {
-            allChunks: true
-        })
-    ]
+        plugins: [
+            new HtmlwebpackPlugin({
+                title: 'Survey test app, innit',
+                template: 'app/index.html',
+                inject: "body"
+            }),
+            new ExtractTextPlugin("./css/app.css", {
+                allChunks: true
+            })
+        ]
     });
 }
 
