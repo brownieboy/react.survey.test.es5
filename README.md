@@ -20,7 +20,8 @@ npm run buildwin
 ```
 The call to "npm run build" will call a Webpack task that will build the following files for you:
 * ./build/index.html
-* ./build/js/bundle.js
+* ./build/js/vendors.js   (3rd party code, specifically, the React.js library itself)
+* ./build/js/bundle.js  (your own code)
 * ./build/css/app.css
 
 Now you can open ./build/index.html in your browser, preferably via a local dev server.  (React prefers to run its code through a proper HTTP server rather than directly through the file system.  I use SublimeServer, which I've installed as a package for Sublime Text.)
@@ -49,5 +50,9 @@ Assuming the task ran okay - look for the "webpack: bundle is now VALID" message
 * http://localhost:8080/
 * http://localhost:8080/webpack-dev-server/
 
+
 If you edit any of the source files (html, css or JavaScript) in the app folder, webpack should automatically detect the change and display the rebuilt version in your browser.
+
+NB: the second URL above wraps your output in a iFrame.  Outside of that iFrame, webpack-dev-server will show you an update whenever your code does rebuild.  This is a nice feature but beware, it does disable the React Developer Tools extension for Google Chrome.
+
 
