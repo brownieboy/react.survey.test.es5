@@ -77,6 +77,17 @@ if (TARGET === 'dev') {
                 test: /\.css$/,
                 loaders: ['style', 'css']
             }]
-        }
+        },
+        devtool: 'eval',
+        devServer: {
+            colors: true,
+            historyApiFallback: true,
+            hot: true,
+            inline: true,
+            progress: true
+        },
+        plugins: [
+            new webpack.HotModuleReplacementPlugin()
+        ]
     });
 }
