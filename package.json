@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "TARGET=build webpack --devtool",
-    "buildwin": "SET TARGET=build&& webpack --devtool sourcemap",
+    "build": "TARGET=build webpack",
+    "buildwin": "SET TARGET=build&& webpack",
     "start": "TARGET=dev webpack-dev-server --devtool eval --progress --colors --hot --inline --history-api-fallback",
     "startwin": "SET TARGET=dev&& webpack-dev-server",
     "startold": "TARGET=dev webpack-dev-server",
